@@ -26,6 +26,7 @@
     <packaging>jar</packaging>
     <artifactId>rocketmq-tools</artifactId>
     <name>rocketmq-tools ${project.version}</name>
+    <description>工具类，监控命令相关实现类</description>
 
     <properties>
         <project.root>${basedir}/..</project.root>

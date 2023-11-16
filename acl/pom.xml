@@ -17,6 +17,7 @@
     </parent>
     <artifactId>rocketmq-acl</artifactId>
     <name>rocketmq-acl ${project.version}</name>
+    <description>权限控制模块</description>
 
     <properties>
         <project.root>${basedir}/..</project.root>

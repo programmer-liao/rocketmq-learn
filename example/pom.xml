@@ -26,6 +26,7 @@
     <packaging>jar</packaging>
     <artifactId>rocketmq-example</artifactId>
     <name>rocketmq-example ${project.version}</name>
+    <description>RocketMQ示例代码</description>
 
     <properties>
         <project.root>${basedir}/..</project.root>
