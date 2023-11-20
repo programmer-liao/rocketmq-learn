@@ -22,6 +22,9 @@ import org.apache.rocketmq.common.metrics.MetricsExporterType;
 
 public class ControllerConfig {
 
+    /**
+     * 尝试从系统属性rocketmq.home.dir中获取rocketmqHome，如果获取不到，则设置为系统环境变量ROCKETMQ_HOME中的值
+     */
     private String rocketmqHome = System.getProperty(MixAll.ROCKETMQ_HOME_PROPERTY, System.getenv(MixAll.ROCKETMQ_HOME_ENV));
     private String configStorePath = System.getProperty("user.home") + File.separator + "controller" + File.separator + "controller.properties";
 

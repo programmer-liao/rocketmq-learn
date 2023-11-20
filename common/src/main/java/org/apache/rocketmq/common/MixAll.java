@@ -52,6 +52,10 @@ import org.apache.rocketmq.common.utils.IOTinyUtils;
 import org.apache.rocketmq.logging.org.slf4j.Logger;
 import org.apache.rocketmq.logging.org.slf4j.LoggerFactory;
 
+/**
+ * RocketMQ一些通用的常量都放在这
+ * MixAll：混合所有
+ */
 public class MixAll {
     public static final String ROCKETMQ_HOME_ENV = "ROCKETMQ_HOME";
     public static final String ROCKETMQ_HOME_PROPERTY = "rocketmq.home.dir";

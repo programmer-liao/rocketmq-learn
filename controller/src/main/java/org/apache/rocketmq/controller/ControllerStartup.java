@@ -51,6 +51,7 @@ public class ControllerStartup {
     public static ControllerManager main0(String[] args) {
 
         try {
+            // 创建ControllerManager
             ControllerManager controller = createControllerManager(args);
             start(controller);
             String tip = "The Controller Server boot success. serializeType=" + RemotingCommand.getSerializeTypeConfigInThisServer();
@@ -102,6 +103,7 @@ public class ControllerStartup {
 
         MixAll.properties2Object(ServerUtil.commandLine2Properties(commandLine), controllerConfig);
 
+        // 需要先设置rocketmq.home.dir或ROCKETMQ_HOME才能启动，否则直接退出程序
         if (StringUtils.isEmpty(controllerConfig.getRocketmqHome())) {
             System.out.printf("Please set the %s or %s variable in your environment!%n", MixAll.ROCKETMQ_HOME_ENV, MixAll.ROCKETMQ_HOME_PROPERTY);
             System.exit(-1);
@@ -130,8 +132,9 @@ public class ControllerStartup {
             controller.shutdown();
             System.exit(-3);
         }
-
+        // 如果代码中使用了线程池，一种优雅停机的方式就是注册一个JVM 钩子函数，在JVM进程关闭之前，先将线程池关闭，及时释放资源
         Runtime.getRuntime().addShutdownHook(new ShutdownHookThread(log, (Callable<Void>) () -> {
+            // 关闭controller
             controller.shutdown();
             return null;
         }));

@@ -98,9 +98,14 @@ public class NamesrvController {
         this.configuration.setStorePathFromConfig(this.namesrvConfig, "configStorePath");
     }
 
+    /**
+     * NamesrvController初始化
+     */
     public boolean initialize() {
         loadConfig();
+        // 初始化网络组件，也就是初始化Netty
         initiateNetworkComponents();
+        // 初始化线程池
         initiateThreadExecutors();
         registerProcessor();
         startScheduleService();
